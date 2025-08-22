@@ -1,4 +1,3 @@
--- Create function
 -- Conditional Aggregation with Ratios:
 -- Uses SUM(CASE ...) to count specific conditions (action = 'answer' or show) and computes a ratio (answer_count / show_count)
 -- Common in analytics for calculating metrics like conversion rates, success rates, or probabilities
