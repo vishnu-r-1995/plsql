@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  oracle-db:
+    image: gvenzl/oracle-xe:18.4.0-slim
+    platform: linux/amd64
+    container_name: oracle-db
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_PASSWORD: oracle
+
+  sqlplus-cli:
+    image: gvenzl/oracle-xe:18.4.0-slim
+    platform: linux/amd64
+    container_name: sqlplus-cli
+    depends_on:
+      - oracle-db
+    entrypoint: ["/bin/sh", "-c", "while true; do sleep 3600; done"]  # keep container alive
