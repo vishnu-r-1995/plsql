@@ -1,29 +1,9 @@
--- Create schema and grant privileges
-CREATE USER appuser IDENTIFIED BY apppwd;
-GRANT CONNECT, RESOURCE TO appuser;
-
-ALTER SESSION SET CURRENT_SCHEMA=appuser;
-
--- Create table
-CREATE TABLE surveylog (
-    question_id VARCHAR2(50),
-    action VARCHAR2(20)
-);
-
--- Insert sample data
-INSERT INTO surveylog VALUES ('Q1', 'show');
-INSERT INTO surveylog VALUES ('Q1', 'answer');
-INSERT INTO surveylog VALUES ('Q1', 'show');
-INSERT INTO surveylog VALUES ('Q2', 'show');
-INSERT INTO surveylog VALUES ('Q2', 'show');
-INSERT INTO surveylog VALUES ('Q2', 'answer');
-
-COMMIT;
-
 -- Create function
 -- Conditional Aggregation with Ratios:
 -- Uses SUM(CASE ...) to count specific conditions (action = 'answer' or show) and computes a ratio (answer_count / show_count)
 -- Common in analytics for calculating metrics like conversion rates, success rates, or probabilities
+
+ALTER SESSION SET CURRENT_SCHEMA=appuser;
 
 CREATE OR REPLACE FUNCTION get_survey_result_fn (
     p_column_name IN VARCHAR2,

@@ -9,6 +9,8 @@ services:
       - "1521:1521"
     environment:
       ORACLE_PASSWORD: oracle
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d  # Only schema + base tables are auto-loaded
 
   sqlplus-cli:
     image: gvenzl/oracle-xe:18.4.0-slim
@@ -17,3 +19,4 @@ services:
     depends_on:
       - oracle-db
     entrypoint: ["/bin/sh", "-c", "while true; do sleep 3600; done"]  # keep container alive
+    
