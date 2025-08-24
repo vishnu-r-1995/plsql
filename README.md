@@ -1,2 +1,23 @@
 # plsql
-A Docker-based setup for Oracle Database and PL/SQL development. Includes an Oracle DB container and SQL*Plus client to run and manage stored procedures, functions, and queries. Enables version-controlled, on-demand execution of PL/SQL scripts for easy testing and analytics.
+
+A Docker-based project for experimenting with **Oracle PL/SQL** functions, procedures, and queries.  
+The setup uses **Colima** on macOS to run Oracle Database in a container, allowing you to write and test PL/SQL scripts easily.
+
+---
+
+## 🚀 Features
+- Oracle XE running inside Docker
+- `init/` folder for schema and table creation scripts
+- `scripts/` folder for PL/SQL functions, procedures, and queries
+- Ready-to-use SQL*Plus client container for executing queries
+- Mac support using **Colima**
+
+---
+
+## 🛠️ Prerequisites
+- [Docker](https://docs.docker.com/get-docker/)
+- [Colima](https://github.com/abiosoft/colima) (for macOS users)
+
+Start Colima before using Docker:
+```bash
+colima start --arch x86_64
